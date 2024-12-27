@@ -2063,15 +2063,15 @@ static void ixgbe_get_strings(struct net_device *netdev, u32 stringset,
 			p += ETH_GSTRING_LEN;
 		}
 		for (i = 0; i < adapter->num_vfs; i++) {
-			snprintf(p, ETH_GSTRING_LEN, "VF %u Rx Packets", i);
+			snprintf(p, ETH_GSTRING_LEN, "vf_%u_rx_packets", i);
 			p += ETH_GSTRING_LEN;
-			snprintf(p, ETH_GSTRING_LEN, "VF %u Rx Bytes", i);
+			snprintf(p, ETH_GSTRING_LEN, "vf_%u_rx_bytes", i);
 			p += ETH_GSTRING_LEN;
-			snprintf(p, ETH_GSTRING_LEN, "VF %u Tx Packets", i);
+			snprintf(p, ETH_GSTRING_LEN, "vf_%u_tx_packets", i);
 			p += ETH_GSTRING_LEN;
-			snprintf(p, ETH_GSTRING_LEN, "VF %u Tx Bytes", i);
+			snprintf(p, ETH_GSTRING_LEN, "vf_%u_tx_bytes", i);
 			p += ETH_GSTRING_LEN;
-			snprintf(p, ETH_GSTRING_LEN, "VF %u MC Packets", i);
+			snprintf(p, ETH_GSTRING_LEN, "vf_%u_tx_packets", i);
 			p += ETH_GSTRING_LEN;
 		}
 		/* BUG_ON(p - data != IXGBE_STATS_LEN * ETH_GSTRING_LEN); */
