@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
-/* Copyright (C) 1999 - 2024 Intel Corporation */
+/* Copyright (C) 1999 - 2025 Intel Corporation */
 
 #include "ixgbe.h"
 
@@ -168,8 +168,8 @@ static int ixgbe_fcoe_ddp_setup(struct net_device *netdev, u16 xid,
 	}
 
 	/* no DDP if we are already down or resetting */
-	if (test_bit(__IXGBE_DOWN, &adapter->state) ||
-	    test_bit(__IXGBE_RESETTING, &adapter->state))
+	if (test_bit(__IXGBE_DOWN, adapter->state) ||
+	    test_bit(__IXGBE_RESETTING, adapter->state))
 		return 0;
 
 	fcoe = &adapter->fcoe;

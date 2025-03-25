@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
-/* Copyright (C) 1999 - 2024 Intel Corporation */
+/* Copyright (C) 1999 - 2025 Intel Corporation */
 
 #include "ixgbe.h"
 #include "ixgbe_common.h"
@@ -67,7 +67,7 @@ static int ixgbe_porttype(char *page, char __always_unused **start,
 	if (adapter == NULL)
 		return snprintf(page, count, "error: no adapter\n");
 	return snprintf(page, count, "%d\n",
-			test_bit(__IXGBE_DOWN, &adapter->state));
+			test_bit(__IXGBE_DOWN, adapter->state));
 }
 
 static int ixgbe_portspeed(char *page, char __always_unused **start,
@@ -360,7 +360,7 @@ static int ixgbe_linkstat(char *page, char __always_unused **start,
 
 	hw = &adapter->hw;
 
-	if (!test_bit(__IXGBE_DOWN, &adapter->state))
+	if (!test_bit(__IXGBE_DOWN, adapter->state))
 		bitmask |= 1;
 
 	if (hw->mac.ops.check_link)

@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
-/* Copyright (C) 1999 - 2024 Intel Corporation */
+/* Copyright (C) 1999 - 2025 Intel Corporation */
 
 #include "ixgbe.h"
 #include "ixgbe_sriov.h"
@@ -1365,7 +1365,7 @@ int ixgbe_init_interrupt_scheme(struct ixgbe_adapter *adapter)
 		   (adapter->num_rx_queues > 1) ? "Enabled" : "Disabled",
 		   adapter->num_rx_queues, adapter->num_tx_queues);
 #endif
-	set_bit(__IXGBE_DOWN, &adapter->state);
+	set_bit(__IXGBE_DOWN, adapter->state);
 
 	return IXGBE_SUCCESS;
 }

@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
-/* Copyright (C) 1999 - 2024 Intel Corporation */
+/* Copyright (C) 1999 - 2025 Intel Corporation */
 
 // SPDX-License-Identifier: GPL-2.0
 /* Copyright (C) 2020 - 2023 Intel Corporation. */
@@ -8,7 +8,11 @@
 
 #include "kcompat.h"
 
+#ifdef HAVE_LINUX_UNALIGNED_HEADER
+#include <linux/unaligned.h>
+#else /* HAVE_LINUX_UNALIGNED_HEADER */
 #include <asm/unaligned.h>
+#endif /* !HAVE_LINUX_UNALIGNED_HEADER */
 #include <linux/crc32.h>
 #include <linux/device.h>
 #include <linux/firmware.h>

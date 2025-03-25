@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-only */
-/* Copyright (C) 1999 - 2024 Intel Corporation */
+/* Copyright (C) 1999 - 2025 Intel Corporation */
 
 #include "ixgbe_api.h"
 #include "ixgbe_common.h"
@@ -1129,8 +1129,9 @@ s32 ixgbe_set_fw_drv_ver(struct ixgbe_hw *hw, u8 maj, u8 min, u8 build,
  */
 bool ixgbe_get_fw_tsam_mode(struct ixgbe_hw *hw)
 {
-	return ixgbe_call_func(hw, hw->mac.ops.get_fw_tsam_mode, (hw),
-			       IXGBE_NOT_IMPLEMENTED);
+	if (hw->mac.ops.get_fw_tsam_mode)
+		return hw->mac.ops.get_fw_tsam_mode(hw);
+	return false;
 }
 
 /**
